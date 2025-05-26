@@ -1,0 +1,14 @@
+<div class="container-fluid">
+  <h1 class="text-center mb-3">Lista de Autores</h1>
+
+  @if (autores) {
+  <div class="container">
+    @for (autores of autores; track autores.cod_autor) {
+    <ul class="list-group">
+      <li class="list-group-item mb-3">{{autores.autor}}</li>
+    </ul>
+    }
+
+  </div>
+  }
+</div>

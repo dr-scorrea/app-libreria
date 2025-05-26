@@ -1,0 +1,70 @@
+<div class="container-fluid">
+
+  <h1 class="text-center mb-3">Añadir Libros</h1>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            <h4 class="text-center">Datos del Libro</h4>
+          </div>
+          <div class="card-body">
+              <form [formGroup]="frmLibros" (ngSubmit)="onSubmit()">
+                <div class="row">
+
+                  <div class="col-md-6 mb-3">
+                    <label for="tituloInput" class="form-label">Titulo</label>
+                    <input type="text" class="form-control" id="tituloInput" formControlName="titulo">
+                  </div>
+
+                  <div class="col-md-6 mb-3">
+                    <label for="autorInput" class="form-label">Autor</label>
+                    <select id="autorInput" class="form-select" formControlName="cod_autor">
+                      <option selected>Seleccione...</option>
+                      @if(autores){
+                        @for (autores of autores; track autores.cod_autor) {
+                          <option value="{{autores.cod_autor}}">{{autores.autor}}</option>
+                        }
+                      }
+                    </select>
+                  </div>
+
+                  <div class="col-md-6 mb-3">
+                    <label for="editorialInput" class="form-label">Editorial</label>
+                    <input type="text" class="form-control" id="editorialInput" formControlName="editorial">
+                  </div>
+
+                  <div class="col-md-6 mb-3">
+                    <label for="AdPInput" class="form-label">Año de publicación</label>
+                    <input type="text" class="form-control" id="AdPInput" formControlName="anio_publicacion">
+                  </div>
+
+                  <div class="col-md-6 mb-3">
+                    <label for="generoInput" class="form-label">Genero</label>
+                    <input type="text" class="form-control" id="generoInput" formControlName="genero">
+                  </div>
+
+                  <div class="col-md-3 mb-3">
+                    <label for="precioInput" class="form-label">Precio</label>
+                    <input type="text" class="form-control" id="precioInput" formControlName="precio">
+                  </div>
+
+                  <div class="col-md-3 mb-3">
+                    <label for="stockInput" class="form-label">Stock</label>
+                    <input type="text" class="form-control" id="stockInput" formControlName="stock">
+                  </div>
+
+
+                  <button class="col-md-12 btn btn-success mb-3" type="submit">Guardar</button>
+                  <a class="btn btn-danger col-md-12" routerLink="/libros/list">Cancelar</a>
+
+                </div>
+
+              </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

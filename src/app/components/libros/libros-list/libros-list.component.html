@@ -1,0 +1,54 @@
+<div class="container-fluid">
+  <h1 class="text-center mb-3">Lista de Libros</h1>
+   @if(libros){
+
+  <div class="container">
+    <div class="row">
+      <a class="btn btn-success mb-4" href="#" routerLink="/libros/add">Añadir Libro</a>
+
+      @for (libros of libros; track libros.cod_libro) {
+
+      <div class="col-md-6">
+        <div class="card mb-3">
+          <div class="card-header text-center">
+            <h5>{{libros.titulo}}</h5>
+            <h6>{{libros.cod_autor}}</h6>
+          </div>
+          <div class="card-body row">
+            <div class="card-text col-md-6 mb-3">Genero: {{libros.genero}}</div>
+            <div class="card-text col-md-6 mb-3">Precio: {{libros.precio | currency}}</div>
+            <div class="card-text col-md-6 mb-3">Año de publicación: {{libros.anio_publicacion}}</div>
+            <div class="card-text col-md-6 mb-3">Stock: {{libros.stock}}</div>
+          </div>
+          <div class="card-footer">
+            <div class="row">
+              <div class="card-text col-md-6 mb-3">Editorial: {{libros.editorial}}</div>
+              <div class="card-text col-md-6 mb-3">Fecha de Registro: {{libros.fecha_registro}}</div>
+              <a class="btn btn-primary mb-3" (click)="editar(libros)">Edit</a>
+              <button class="btn btn-danger mb-3"  data-bs-toggle="modal" data-bs-target="#deleteModal" (click)="eliminarSelect(libros.cod_libro)">Delete</button>
+              <div class="modal fade"   id="deleteModal" tabindex="-1" aria-labelledby="deleteModal" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="deleteModal">Seguro de borrar este Libro?</h1>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-danger" (click)="eliminar()">Si</button>
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      }
+
+    </div>
+
+  </div>
+  }
+</div>
+

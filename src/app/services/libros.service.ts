@@ -31,7 +31,7 @@ export class LibrosService {
   }
 
   delete(cod_libro:number, cnrUsrioRgtro:number):Observable<DeleteLibros>{
-    const url=`/DelRemoveLibro`
+    const url=`${this.uri}/DelRemoveLibro`
     const body:DeleteLibros = {
       cod_libro,
       cnrUsrioRgtro
